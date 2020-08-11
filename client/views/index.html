@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../assets/logo/icon-fundo-transparente.png" />
+  <link rel="stylesheet" href="../dependencies/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="../dependencies/datatablesjs/dataTables.bootstrap4.min.css" />
+  <link rel="stylesheet" href="../styles/produto.css" />
+  <link rel="stylesheet" href="../styles/datatable.css" />
+  <script src="../dependencies/jquery/jquery-3.5.1.slim.min.js"></script>
+  <script src="../dependencies/popperjs/popper.min.js"></script>
+  <script src="../dependencies/bootstrap/bootstrap.min.js"></script>
+  <script src="../dependencies/datatablesjs/jquery.dataTables.min.js"></script>
+  <script src="../dependencies/datatablesjs/dataTables.bootstrap4.min.js"></script>
+  <script src="../js/produto.js"></script>
+  <title>Beauty Control</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar fixed-top navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        <img src="../assets/logo/icon-beautycontrol-white.png" width="120" height="30" class="d-inline-block align-top"
+          loading="lazy" />
+      </a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <hr />
+    <h1>Cadastro de Produtos</h1>
+    <hr />
+    <table id="produtos-table" class="display table table-bordered table-dark table-hover" style="width: 100%;"></table>
+  </main>
+
+  <div class="modal-produtos">
+    <div class="modal fade" id="modal-produtos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Colocar o formulário de produtos aqui!</p>
+            <p id="dados-produto"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
