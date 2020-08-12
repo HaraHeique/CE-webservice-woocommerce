@@ -3,7 +3,7 @@ import { Connection } from 'typeorm';
 import { ProdutoGet, ProdutoSave } from './produto.model';
 
 @Injectable()
-export class AppService {
+export class ProdutoService {
 
   constructor(private connection: Connection) {}
 

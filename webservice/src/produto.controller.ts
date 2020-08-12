@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Get, HttpException, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
-import { AppService } from './app.service';
+import { ProdutoService } from './produtoservice';
 import { ProdutoGet, ProdutoSave } from './produto.model';
 
 @Controller("/produto")
-export class AppController {
-  constructor(private readonly appService: AppService) {}
+export class ProdutoController {
+  constructor(private readonly appService: ProdutoService) {}
 
   @Get()
   async listarProdutos(): Promise<ProdutoGet[]> {
