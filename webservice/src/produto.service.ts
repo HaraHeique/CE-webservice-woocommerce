@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Connection } from 'typeorm';
-import { ProdutoGet, ProdutoSave } from './produto.model';
+import { IdNaoEncontrado } from './custom-execeptions';
+import { ProdutoGet, ProdutoPost, ProdutoPut } from './produto.model';
 
 @Injectable()
 export class ProdutoService {
@@ -23,19 +24,23 @@ export class ProdutoService {
   }
 
   async listarProduto(id: number): Promise<ProdutoGet> {
-    const product: ProdutoGet = (await this.connection.query(
-      'SELECT ID AS id, post_title AS nome, post_excerpt AS descricao, min_price AS preco, stock_quantity AS qtdEstoque FROM wp_posts AS p ' + 
-      'INNER JOIN wp_wc_product_meta_lookup AS pm ON pm.product_id = p.id ' +
-      'WHERE id = ' + id
-    ))[0];
+    try {
+      const product: ProdutoGet = (await this.connection.query(
+        'SELECT ID AS id, post_title AS nome, post_excerpt AS descricao, min_price AS preco, stock_quantity AS qtdEstoque FROM wp_posts AS p ' + 
+        'INNER JOIN wp_wc_product_meta_lookup AS pm ON pm.product_id = p.id ' +
+        'WHERE id = ' + id
+      ))[0];
 
-    product.preco = Number(product.preco);
-    product.qtdEstoque = Number(product.qtdEstoque);
+      product.preco = Number(product.preco);
+      product.qtdEstoque = Number(product.qtdEstoque);
 
-    return product;
+      return product;
+    } catch (err) {
+      throw new IdNaoEncontrado(`Não existe um produto com id = ${id}`);
+    }
   }
 
-  async criarProduto(produto: ProdutoSave): Promise<number> {
+  async criarProduto(produto: ProdutoPost): Promise<number> {
     return new Promise(async (resolve, reject) => {
       await this.connection.transaction(async transaction => {
         try {
@@ -74,7 +79,8 @@ export class ProdutoService {
     
   }
 
-  async atualizarProduto(produto: ProdutoSave): Promise<void> {
+  async atualizarProduto(produto: ProdutoPut): Promise<void> {
+    await this.listarProduto(produto.id);
     await this.connection.transaction(async transaction => {
 
       if (produto.nome != undefined || produto.descricao != undefined) {
@@ -114,6 +120,8 @@ export class ProdutoService {
   }
 
   async deletarProduto(id: number): Promise<void> {
+    await this.listarProduto(id);
+
     await this.connection.transaction(async transaction => {
       await transaction.query(
         `DELETE FROM wp_posts WHERE id = ${id};`
