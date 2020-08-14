@@ -1,0 +1,25 @@
+{
+  "produto": [
+    {
+      "id": 1,
+      "nome": "Produto 1",
+      "descricao": "É um produto 1 bem interessante",
+      "qtdEstoque": 10,
+      "preco": 12.32
+    },
+    {
+      "id": 2,
+      "nome": "Produto 2",
+      "descricao": "É um produto 2 bem interessante",
+      "qtdEstoque": 13,
+      "preco": 500.20
+    },
+    {
+      "id": 3,
+      "nome": "Produto 3",
+      "descricao": "É um produto 3 bem interessante",
+      "qtdEstoque": 1,
+      "preco": 12
+    }
+  ]
+}
