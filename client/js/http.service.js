@@ -39,7 +39,7 @@ export function HttpService(options = null) {
       processData: _options.processData,
       contentType: _options.contentType,
       beforeSend: function (xhr) {
-        for (var key of Object.keys(_options.headers)) {
+        for (let key of Object.keys(_options.headers)) {
           xhr.setRequestHeader(key, _options.headers[key]);
         }
       },
@@ -51,11 +51,11 @@ export function HttpService(options = null) {
 
   function _getOptions(options) {
     if (!options) {
-      return {};
+      options = {};
     }
 
     return {
-      async: options.async || false,
+      async: options.async || true,
       headers: options.headers || {},
       processData: options.processData || true,
       contentType: options.contentType || 'application/x-www-form-urlencoded; charset=UTF-8',
