@@ -18,5 +18,5 @@ export const endpoints = {
   getProductById: `${baseUrl}/produto/{id}`,
   addProduct: `${baseUrl}/produto`,
   deleteProduct: `${baseUrl}/produto/{id}`,
-  updateProduct: `${baseUrl}/produto`
+  updateProduct: `${baseUrl}/produto/{id}`
 }

@@ -1,17 +1,16 @@
 table {
-    border-radius: 3px;
+  border-radius: 3px;
 }
-    table tr {
-        cursor: pointer;
-    }
+table tr {
+  cursor: pointer;
+}
 
 .page-item.active .page-link {
-    background-color: #343a40;
-    color: #FFF;
+  background-color: #343a40;
+  color: #fff;
 }
 
 .page-link:hover {
-    background-color: #343a40;
-    color: #FFF;
+  background-color: #343a40;
+  color: #fff;
 }
-

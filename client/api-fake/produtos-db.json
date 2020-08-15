@@ -12,7 +12,7 @@
       "nome": "Produto 2",
       "descricao": "É um produto 2 bem interessante",
       "qtdEstoque": 13,
-      "preco": 500.20
+      "preco": 500.2
     },
     {
       "id": 3,
@@ -20,6 +20,48 @@
       "descricao": "É um produto 3 bem interessante",
       "qtdEstoque": 1,
       "preco": 12
+    },
+    {
+      "nome": "Produto 4",
+      "qtdEstoque": "57",
+      "preco": "119.32",
+      "descricao": "É isto aíiiiiiiiii!!!",
+      "id": 4
+    },
+    {
+      "nome": "Produto 5",
+      "qtdEstoque": "43",
+      "preco": "12.32",
+      "descricao": "asdaxD",
+      "id": 5
+    },
+    {
+      "nome": "Produto 6",
+      "qtdEstoque": "1233",
+      "preco": "4323.54",
+      "descricao": "haha jukes tiltado",
+      "id": 6
+    },
+    {
+      "nome": "Produto 7",
+      "qtdEstoque": "232",
+      "preco": "123.32",
+      "descricao": "'11ewdasdas",
+      "id": 7
+    },
+    {
+      "nome": "Produto 213",
+      "qtdEstoque": "",
+      "preco": "",
+      "descricao": "dsadsdas",
+      "id": 20
+    },
+    {
+      "nome": "Produto 2324",
+      "qtdEstoque": "23",
+      "preco": "12.354",
+      "descricao": "EOQ MALUCO",
+      "id": 21
     }
   ]
 }

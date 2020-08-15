@@ -1,21 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap");
 
 body {
-    font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 main {
-    margin-top: 80px !important;
-    margin-bottom: 20px !important;
+  margin-top: 80px !important;
+  margin-bottom: 20px !important;
 }
 
 main h1 {
-    text-align: center;
-    margin: 20px 0 20px 0;
-    font-weight: 600;
+  text-align: center;
+  margin: 20px 0 20px 0;
+  font-weight: 600;
 }
 
 .navbar {
-    background-color: #000 !important;
-    color: #FFF !important;
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+#modal-produtos .btn-submit-modal {
+  display: none;
+}
+
+#add-product img {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 30px;
+  right: 30px;
+  background-color: #b2b7b5;
+  color: #d0c6c6;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  cursor: pointer;
 }
