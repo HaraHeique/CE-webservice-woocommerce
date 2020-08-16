@@ -14,8 +14,8 @@ import { StatsService } from './stats.service';
       username: 'root',
       password: '',
       database: 'evalyn_aromas',
-      entities: [],
-    }),
+      entities: []
+    })
   ],
   controllers: [ProdutoController, StatsController],
   providers: [ProdutoService, StatsService],
