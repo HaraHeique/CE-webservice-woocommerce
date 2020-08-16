@@ -52,7 +52,7 @@ Ao contrário do que foi proposto, como dito anteriormente, foi criado uma inter
 Abaixo é apresentado uma tabela com as requisições e suas respectivas tabelas e raw queries utilizadas para as funcionalidades da aplicação:
 
 Funcionalidade|Verbo HTTP|Tabelas|Query
----|---|---
+---|---|---|----
 **Listar Produtos**|GET||
 **Listar Produto**|GET||
 **Inserir produto**|POST||
