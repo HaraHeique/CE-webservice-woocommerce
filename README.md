@@ -7,7 +7,7 @@ O trabalho em questão é da disciplina de CE (Comércio Eletrônico), do curso 
 - **Ambiente de desenvolvimento**: Visual Studio Code (versão 1.35.1+)
 
 <p align="center">
-    <img src="./docs/images/logo.png" alt="logo da marca" title="Logo Beauty Control"/>
+    <img src="./docs/images/logo.png" alt="logo da marca" title="Logo Beauty Control" width="300" height="400"/>
 </p>
 
 O trabalho consiste em prover uma interface RESTful para o sistema de comércio eletrônico voltado para beleza desenvolvido, chamado **Beauty Control**, o qual foi criado através do plugin WooCommerce.
