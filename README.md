@@ -32,7 +32,7 @@ No web service nas seguintes situações... são realizados os controles de falh
 COLOCAR IMAGENS DOS TOASTS DE SUCESSO E ERRO
 
 
-### 3. Requisições ao web service (Teste)
+### 3. Requisições ao web service
 Ao contrário do que foi proposto, como dito anteriormente, foi criado uma interface web para facilitar tanto nos testes e consumo mais mais fácil e amigável possível ao usuário. Logo abaixo contém imagens com suas respectivas explicações de cada teste solicitado no trabalho.
 
 #### 3.1 Listar todos os produtos
