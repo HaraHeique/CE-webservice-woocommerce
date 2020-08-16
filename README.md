@@ -3,7 +3,7 @@ O trabalho em questão é da disciplina de CE (Comércio Eletrônico), do curso 
 
 ### Informações gerais
 - **Autores**: Harã Heique e Joel Will
-- **Principais Ferramentas**: NestJs, JavaScript, HTML, CSS e Bootstrap
+- **Principais Ferramentas**:  WordPress, WooCommerce, NestJs, TypeORM, MySql, JavaScript, HTML, CSS e Bootstrap
 - **Ambiente de desenvolvimento**: Visual Studio Code (versão 1.35.1+)
 
 <p align="center">
