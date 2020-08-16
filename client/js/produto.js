@@ -20,7 +20,7 @@ $(document).ready(function () {
         renderDataTable(dataSet);
       })
       .fail(function (jqxhr, textStatus, error) {
-        console.error(textStatus);
+        console.error(textStatus, jqxhr.responseText);
       })
       .always(function () {
         onClickAddButton();
@@ -88,7 +88,7 @@ $(document).ready(function () {
           onClickDeleteProduct(data.id);
         })
         .fail(function (jqxhr, textStatus, error) {
-          showToast(false, "Houve um erro no servidor");
+          showToast(false, jqxhr.responseJSON.message);
         });
     });
   }
@@ -146,28 +146,28 @@ $(document).ready(function () {
     const productAdd = createObjectFormRequest();
 
     http
-      .post(endpoints.addProduct, productAdd)
+      .post(endpoints.addProduct, JSON.stringify(productAdd))
       .done(function (data) {
         showToast(true, "Produto adicionado com sucesso.");
         init();
       })
       .fail(function (jqxhr, textStatus, error) {
-        showToast(false, "Houve um erro no servidor");
+        showToast(false, jqxhr.responseJSON.message);
       });
   }
 
   function updateProductRequest(id) {
     const productUpdate = createObjectFormRequest();
-    productUpdate.id = id;
+    productUpdate.id = Number(id);
 
     http
-      .put(endpoints.updateProduct.replace("{id}", id), productUpdate)
+      .put(endpoints.updateProduct.replace("{id}", id), JSON.stringify(productUpdate))
       .done(function (data) {
         showToast(true, "Produto atualizado com sucesso.");
         init();
       })
       .fail(function (jqxhr, textStatus, error) {
-        showToast(false, "Houve um erro no servidor");
+        showToast(false, jqxhr.responseJSON.message);
       });
   }
 
@@ -179,16 +179,17 @@ $(document).ready(function () {
         init();
       })
       .fail(function (jqxhr, textStatus, error) {
-        showToast(false, "Houve um erro no servidor");
+        showToast(false, jqxhr.responseJSON.message);
       });
   }
 
   function createObjectFormRequest() {
-    const product = {};
-
-    $("#form-product input, textarea").each(function (i, elem) {
-      product[elem.name] = elem.value;
-    });
+    const product = {
+      nome: $("#form-product #product-name").val(),
+      qtdEstoque: Number($("#form-product #product-quantity").val()),
+      preco: Number($("#form-product #product-price").val()),
+      descricao: $("#form-product #product-description").val()
+    };
 
     return product;
   }
@@ -239,7 +240,7 @@ $(document).ready(function () {
     const options = {
       animation: true,
       autohide: true,
-      delay: 3000,
+      delay: 5000,
     };
 
     if (success) {

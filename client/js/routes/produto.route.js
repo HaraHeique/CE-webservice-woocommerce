@@ -1,4 +1,4 @@
-const PORT = "4200";
+const PORT = "5000";
 const PORT_FAKE_API = "3000"
 const PREFIX = "webservice";
 
@@ -8,7 +8,7 @@ const defaultHosts = {
   customLocalHost: `10.0.2.15:${PORT}`
 };
 
-const USE_FAKE_API = true;
+const USE_FAKE_API = false;
 
 export const baseUrl = USE_FAKE_API ? `http://${defaultHosts.localhostFakeApi}` :
                                       `http://${defaultHosts.localhost}/${PREFIX}`;

@@ -56,9 +56,9 @@ export function HttpService(options = null) {
 
     return {
       async: options.async || true,
-      headers: options.headers || {},
-      processData: options.processData || true,
-      contentType: options.contentType || 'application/x-www-form-urlencoded; charset=UTF-8',
+      headers: options.headers || { 'Content-Type': 'application/json' },
+      processData: options.processData || false,
+      contentType: options.contentType || 'application/json; charset=utf-8',
       stateFunctions: {
         success: options.success || null,
         error: options.error || null,
