@@ -1,17 +1,4 @@
-const PORT = "5000";
-const PORT_FAKE_API = "3000"
-const PREFIX = "webservice";
-
-const defaultHosts = {
-  localhost: `localhost:${PORT}`,
-  localhostFakeApi: `localhost:${PORT_FAKE_API}`,
-  customLocalHost: `10.0.2.15:${PORT}`
-};
-
-const USE_FAKE_API = false;
-
-export const baseUrl = USE_FAKE_API ? `http://${defaultHosts.localhostFakeApi}` :
-                                      `http://${defaultHosts.localhost}/${PREFIX}`;
+import { baseUrl } from './base.route.js';
 
 export const endpoints = {
   getAllProducts: `${baseUrl}/produto`,

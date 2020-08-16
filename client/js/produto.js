@@ -1,5 +1,5 @@
 import { endpoints } from "./routes/produto.route.js";
-import { HttpService } from "./http.service.js";
+import { HttpService } from "./services/http.service.js";
 
 $(document).ready(function () {
   const http = new HttpService();
@@ -20,7 +20,7 @@ $(document).ready(function () {
         renderDataTable(dataSet);
       })
       .fail(function (jqxhr, textStatus, error) {
-        console.error(textStatus, jqxhr.responseText);
+        console.error(textStatus, jqxhr.responseJSON.message);
       })
       .always(function () {
         onClickAddButton();
@@ -240,7 +240,7 @@ $(document).ready(function () {
     const options = {
       animation: true,
       autohide: true,
-      delay: 5000,
+      delay: 3000
     };
 
     if (success) {
