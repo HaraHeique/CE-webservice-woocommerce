@@ -13,6 +13,9 @@ export class StatsService {
               '(SELECT SUM(product_qty) AS qtd, SUM(product_gross_revenue) AS valor FROM wp_wc_order_product_lookup) AS aux' 
             ))[0];
 
+    stats.totalPedidosVendidos = !stats.totalPedidosVendidos ? 0 : stats.totalPedidosVendidos;
+    stats.valorMedioPedidosVendidos = !stats.valorMedioPedidosVendidos ? 0 : stats.valorMedioPedidosVendidos;
+    stats.valorTotalPedidosVendidos = !stats.valorTotalPedidosVendidos ? 0 : stats.valorTotalPedidosVendidos;
 
     return stats;
   }

@@ -1,5 +1,5 @@
 export class Stats {
-    totalPedidosVendidos: number;
-    valorTotalPedidosVendidos: number;
-    valorMedioPedidosVendidos: number;
+    totalPedidosVendidos: number = 0;
+    valorTotalPedidosVendidos: number = 0;
+    valorMedioPedidosVendidos: number = 0;
 }
