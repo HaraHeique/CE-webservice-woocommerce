@@ -14,16 +14,47 @@ O trabalho consiste em prover uma interface RESTful para o sistema de comércio 
 Uma observação importante a ser feita é que ao invés de esta interface ser consumida por uma CLI para alimentar a base de dados do e-commerce, ela é consumimda por uma aplicação cliente web, o qual também será descrita e detalhada ao longo da explicação das etapas deste trabalho.
 
 ### 1. Como executar?
-Para execução tanto do web service, aplicação backend, quanto a da interface do usuário web, aplicação frontend, e também do plugin WooCommerce (adotada pela dupla), basta seguir os passos seguintes.
+Para execução tanto do web service, aplicação backend, quanto a da interface do usuário web, aplicação frontend, e também do plugin WooCommerce (adotada pela dupla), basta seguir os passos seguintes. OBS: Os teste foram feitos no **Windows 10**
 
 #### 1.1 WooCommerce
-...
+--LINK DRIVE
+Crie um banco com nome **wordpress**
 
 #### 1.2 Web Service
-...
+- Instale o NodeJS
+- Instale o Framework NestJS com o comando
+```console
+npm i -g @nestjs/cli
+```
+- Abra o terminal na pasta /webservice dentro do projeto e execute o seguinte comando:
+```console
+npm install
+```
+
+- Inicie o WAMP ou XAMP, com MySQL e o APACHE
+--LINK DRIVE
+
+- Em seguida, execute o backend com o comando abaixo:
+```console
+nest start 
+```
+**OU**
+```console
+npm run start
+```
 
 #### 1.3 Interface Web (Cliente)
-...
+- Instale http-server com o comando
+```console
+npm i -g http-server
+```
+
+- Abra o terminal na pasta /client dentro do projeto e execute o comando abaixo:
+```console
+http-server -a localhost -o views/index.html
+```
+
+**Caso ocorra um erro de SSL no Google Chrome (redireciona automaticamente de http para htpps) execute os passos do link:** https://stackoverflow.com/questions/25277457/google-chrome-redirecting-localhost-to-https
 
 
 ### 2. Controle à falhas
