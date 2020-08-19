@@ -45,8 +45,8 @@ export class ProdutoService {
       await this.connection.transaction(async transaction => {
         try {
           const response = await transaction.query(
-            'INSERT INTO wp_posts (post_title, post_excerpt, post_type) ' +
-            `VALUES ('${produto.nome}', '${produto.descricao}', 'product')`
+            'INSERT INTO wp_posts (post_title, post_excerpt, post_type, post_date, post_date_gmt, post_modified, post_modified_gmt, post_content, to_ping, pinged, post_content_filtered) ' +
+            `VALUES ('${produto.nome}', '${produto.descricao}', 'product', NOW(), UTC_TIMESTAMP(), NOW(), UTC_TIMESTAMP(), '', '', '', '')`
           );
     
           await transaction.query(
