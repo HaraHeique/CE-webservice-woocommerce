@@ -25,7 +25,7 @@ Para execução tanto do *web service*, aplicação backend, quanto a da *interf
 
 #### 1.2 Web Service
 - Instale o NodeJS;
-- Instale o Framework NestJS com o comando;
+- Instale o Framework NestJS com o comando:
 
 ```console
 npm i -g @nestjs/cli
@@ -64,7 +64,7 @@ http-server -a localhost -o views/index.html
 
 Após executar o comando acima irá abrir automaticamente a interface no seu navegador padrão na url http://localhost:8080/views/index.html.
 
-**OBS.:** Caso ocorra um erro de SSL no Google Chrome (redireciona automaticamente de http para https) execute os passos do link: https://stackoverflow.com/questions/25277457/google-chrome-redirecting-localhost-to-http
+**OBS.:** Caso ocorra um erro de SSL no Google Chrome (redireciona automaticamente de http para https) execute os passos do link: https://stackoverflow.com/questions/25277457/google-chrome-redirecting-localhost-to-http.
 
 
 ### 2. Controle à falhas
