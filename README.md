@@ -14,47 +14,57 @@ O trabalho consiste em prover uma interface RESTful para o sistema de comércio 
 Uma observação importante a ser feita é que ao invés de esta interface ser consumida por uma CLI para alimentar a base de dados do e-commerce, ela é consumimda por uma aplicação cliente web, o qual também será descrita e detalhada ao longo da explicação das etapas deste trabalho.
 
 ### 1. Como executar?
-Para execução tanto do web service, aplicação backend, quanto a da interface do usuário web, aplicação frontend, e também do plugin WooCommerce (adotada pela dupla), basta seguir os passos seguintes. OBS: Os teste foram feitos no **Windows 10**
+Para execução tanto do *web service*, aplicação backend, quanto a da *interface do usuário web*, aplicação frontend, e também do plugin *WooCommerce* (adotada pela dupla), basta seguir os passos seguintes. 
+
+**OBS**.: Todos os testes foram feitos no **Windows 10**.
 
 #### 1.1 WooCommerce
---LINK DRIVE
-Crie um banco com nome **wordpress**
+- Para utilizar o WooCommerce basicamente é necessário baixar e iniciar o WAMP ou XAMP, com MySQL e o APACHE, após isto criar um banco de dados utilizado no e-commerce e logo depois baixar e iniciar o Wordpress e por fim instalar o plugin WooCommerce. Para mais detalhes de como utilizar a tecnologia basta seguir este [link](https://drive.google.com/file/d/1WXa7nEO55oRmkdD-6l8sI07nZUfCudiQ/view) que contém um vídeo com todas as etapas realizado na primeira etapa do trabalho.
+
+**OBS**.: Crie um banco com nome **wordpress**, assim como é mostrado no vídeo do link acima.
 
 #### 1.2 Web Service
-- Instale o NodeJS
-- Instale o Framework NestJS com o comando
+- Instale o NodeJS;
+- Instale o Framework NestJS com o comando;
+
 ```console
 npm i -g @nestjs/cli
 ```
-- Abra o terminal na pasta /webservice dentro do projeto e execute o seguinte comando:
+
+- Abra o terminal no diretório **/webservice** dentro do projeto e execute o seguinte comando:
+
 ```console
 npm install
 ```
 
-- Inicie o WAMP ou XAMP, com MySQL e o APACHE
---LINK DRIVE
-
 - Em seguida, execute o backend com o comando abaixo:
-```console
-nest start 
-```
-**OU**
+
 ```console
 npm run start
 ```
 
+Também pode ser utilizado o comando abaixo:
+
+```console
+nest start 
+```
+
 #### 1.3 Interface Web (Cliente)
 - Instale http-server com o comando
+
 ```console
 npm i -g http-server
 ```
 
-- Abra o terminal na pasta /client dentro do projeto e execute o comando abaixo:
+- Abra o terminal no diretório **/client** dentro do projeto e execute o comando abaixo:
+
 ```console
 http-server -a localhost -o views/index.html
 ```
 
-**Caso ocorra um erro de SSL no Google Chrome (redireciona automaticamente de http para htpps) execute os passos do link:** https://stackoverflow.com/questions/25277457/google-chrome-redirecting-localhost-to-https
+Após executar o comando acima irá abrir automaticamente a interface no seu navegador padrão na url http://localhost:8080/views/index.html.
+
+**OBS.:** Caso ocorra um erro de SSL no Google Chrome (redireciona automaticamente de http para https) execute os passos do link: https://stackoverflow.com/questions/25277457/google-chrome-redirecting-localhost-to-http
 
 
 ### 2. Controle à falhas
