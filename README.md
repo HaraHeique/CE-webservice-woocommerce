@@ -134,12 +134,12 @@ Abaixo é apresentado uma tabela com as requisições e suas respectivas tabelas
 
 Funcionalidade|Verbo HTTP|Tabelas|Query
 ---|---|---|---
-**Listar produtos**|GET||
-**Listar produto**|GET||
+**Listar produtos**|GET|wp_posts, wp_wc_product_meta_lookup|SELECT ID AS id, post_title AS nome, post_excerpt AS descricao, min_price AS preco, stock_quantity AS qtdEstoque FROM wp_posts AS p INNER JOIN wp_wc_product_meta_lookup AS pm ON pm.product_id = p.id WHERE pm.product_id IS NOT NULL;
+**Listar produto**|GET|wp_posts, wp_wc_product_meta_lookup|SELECT ID AS id, post_title AS nome, post_excerpt AS descricao, min_price AS preco, stock_quantity AS qtdEstoque FROM wp_posts AS p INNER JOIN wp_wc_product_meta_lookup AS pm ON pm.product_id = p.id WHERE id = @id;
 **Inserir produto**|POST||
 **Atualizar produto**|PUT||
-**Remover produto**|DELETE||
-**Obter estatísticas**|GET||
+**Remover produto**|DELETE|wp_posts, wp_wc_product_meta_lookup, wp_postmeta|DELETE FROM wp_posts WHERE id = @id;<br>DELETE FROM wp_wc_product_meta_lookup WHERE product_id = @id;<br>DELETE FROM wp_postmeta WHERE post_id = @id;
+**Obter estatísticas**|GET|wp_wc_order_product_lookup|SELECT aux.qtd AS totalPedidosVendidos, aux.valor AS valorTotalPedidosVendidos, aux.valor / aux.qtd AS valorMedioPedidosVendidos FROM (SELECT SUM(product_qty) AS qtd, SUM(product_gross_revenue) AS valor FROM wp_wc_order_product_lookup) AS aux;
 
 
 ### Informações adicionais
