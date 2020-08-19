@@ -71,7 +71,7 @@ $(document).ready(function () {
         name: "Valor Total de Pedidos Vendidos (R$)",
         data: [data.valorTotalPedidosVendidos]
       }, {
-        name: "Valor Médio de Pedidos Vendidos (R$)",
+        name: "Valor Médio de Pedidos Vendidos (R$/uni)",
         data: [data.valorMedioPedidosVendidos]
       }]
     });
