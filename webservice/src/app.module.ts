@@ -13,7 +13,7 @@ import { StatsService } from './stats.service';
       port: 3306,
       username: 'root',
       password: '',
-      database: 'evalyn_aromas',
+      database: 'wordpress',
       entities: []
     })
   ],
