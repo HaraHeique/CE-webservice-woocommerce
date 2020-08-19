@@ -68,10 +68,21 @@ Após executar o comando acima irá abrir automaticamente a interface no seu nav
 
 
 ### 2. Controle à falhas
-No web service nas seguintes situações... são realizados os controles de falhas... blá blá blá. Algo importante a ressaltar que as falhas ocorridas e capturadas pelo web service são apresentadas para o usuário de forma amigável na interface cliente a partir de toasts, as quais aparecem no canto superior direito, melhorando assim a experiência do usuário. 
+No web service nas seguintes situações são realizados os controles de falhas: 
 
-COLOCAR IMAGENS DOS TOASTS DE SUCESSO E ERRO
+**OBS.:** Algo importante a ressaltar que as falhas ocorridas e capturadas pelo web service são apresentadas para o usuário de forma amigável na interface cliente a partir de toasts, as quais aparecem no canto superior direito, melhorando assim a experiência do usuário.
 
+- Na inserção e atualização de produtos, caso o valor ou a quantidade forem negativos como é mostrado na imagem abaixo.
+
+<p align="center">
+    <img src="./docs/images/erro-valor-negativo.png" alt="erro de valor negativo" title="Erro de valor negativo na inserção ou atualização do produto"/>
+</p>
+
+- Em qualquer operação que receba um identificador, se o identificador não existir na base de dados como é mostrado na imagem abaixo.
+
+<p align="center">
+    <img src="./docs/images/erro-id-invalido.png" alt="erro de ID inválido" title="Erro de ID não existente na base de dados"/>
+</p>
 
 ### 3. Requisições ao web service
 Ao contrário do que foi proposto, como dito anteriormente, foi criado uma interface web para facilitar tanto nos testes e consumo mais mais fácil e amigável possível ao usuário. Logo abaixo contém imagens com suas respectivas explicações de cada teste solicitado no trabalho.
