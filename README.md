@@ -24,8 +24,8 @@ Para execução tanto do *web service*, aplicação backend, quanto a da *interf
 **OBS**.: Crie um banco com nome **wordpress**, assim como é mostrado no vídeo do link acima.
 
 #### 1.2 Web Service
-- Instale o NodeJS;
-- Instale o Framework NestJS com o comando:
+- Instale o [Node.js](https://nodejs.org/en/);
+- Instale o Framework [NestJS](https://nestjs.com/) com o comando:
 
 ```console
 npm i -g @nestjs/cli
