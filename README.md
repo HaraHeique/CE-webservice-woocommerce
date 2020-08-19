@@ -119,7 +119,7 @@ Para atualizar um produto basta clicar em uma das linhas desejada da tabela, ond
 Para remover um produto basta clicar em uma das linhas desejada da tabela, onde será apresentado um formulário com os dados preenchidos. Após isto basta clicar no botão de coloração cinza chamado DELETAR e será realizado uma requisição **HTTP DELETE** para o endpoint `http://localhost/webservice/produto/{id}`.
 
 <p align="center">
-    <img src="./docs/images/requisicoes-webservice/deletar-produto.png" alt="requisição deletar único produto (HTTP DELETE)" title="Deletar um produto"/>
+    <img src="./docs/images/requisicoes-webservice/remover-produto.png" alt="requisição deletar único produto (HTTP DELETE)" title="Deletar um produto"/>
 </p>
 
 #### 3.6 Obter estatísticas de vendas
