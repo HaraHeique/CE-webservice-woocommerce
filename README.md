@@ -153,7 +153,7 @@ Funcionalidade|Explicação
 **Atualizar produto**|É feito uma querie de **UPDATE** para cada tabela que foi feita inserção de dados sobre o produto, mas não é feito atualização dos valores default da tabela **wp_posts** e nem na linha que indica se o estoque deve ser gerenciado ou não.
 **Remover produto**|São feitas 3 **DELETEs** uma em cada tabela que possui informações do produto, apagando apenas o produto que foi passado o **Id**
 **Obter estatísticas**|Busca primeiro a soma da quantidade de produtos vendidos e do valor total dos produtos vendidos, depois divide um pelo outro e obtem a média do valor dos produtos vendidos
- e 
+
 ### Informações adicionais
 Todo o código fonte está hospedado no [GitHub](https://github.com/HaraHeique/CE-webservice-woocommerce).
 
