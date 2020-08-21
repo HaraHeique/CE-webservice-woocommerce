@@ -21,6 +21,7 @@ Para execução tanto do *web service*, aplicação backend, quanto a da *interf
 #### 1.1 WooCommerce
 - Para utilizar o WooCommerce basicamente é necessário baixar e iniciar o WAMP ou XAMP, com MySQL e o APACHE, após isto criar um banco de dados utilizado no e-commerce e logo depois baixar e iniciar o Wordpress e por fim instalar o plugin WooCommerce. Para mais detalhes de como utilizar a tecnologia basta seguir este [link](https://drive.google.com/file/d/1WXa7nEO55oRmkdD-6l8sI07nZUfCudiQ/view) que contém um vídeo com todas as etapas realizado na primeira etapa do trabalho.
 
+
 **OBS**.: Crie um banco com nome **wordpress**, assim como é mostrado no vídeo do link acima.
 
 #### 1.2 Web Service
@@ -136,12 +137,23 @@ Funcionalidade|Verbo HTTP|Tabelas|Query
 ---|---|---|---
 **Listar produtos**|GET|wp_posts, wp_wc_product_meta_lookup|SELECT ID AS id, post_title AS nome, post_excerpt AS descricao, min_price AS preco, stock_quantity AS qtdEstoque FROM wp_posts AS p INNER JOIN wp_wc_product_meta_lookup AS pm ON pm.product_id = p.id WHERE pm.product_id IS NOT NULL;
 **Listar produto**|GET|wp_posts, wp_wc_product_meta_lookup|SELECT ID AS id, post_title AS nome, post_excerpt AS descricao, min_price AS preco, stock_quantity AS qtdEstoque FROM wp_posts AS p INNER JOIN wp_wc_product_meta_lookup AS pm ON pm.product_id = p.id WHERE id = @id;
-**Inserir produto**|POST||
-**Atualizar produto**|PUT||
+**Inserir produto**|POST|wp_posts, wp_wc_product_meta_lookup, wp_postmeta|INSERT INTO wp_posts (post_title, post_excerpt, post_type, post_date, post_date_gmt, post_modified, post_modified_gmt, post_content, to_ping, pinged, post_content_filtered) VALUES '@produto.nome', '@produto.descricao','product', NOW(), UTC_TIMESTAMP(), NOW(), UTC_TIMESTAMP(), '', '', '', '');</br>INSERT INTO wp_wc_product_meta_lookup (product_id, min_price, stock_quantity) VALUES (response.insertId}, @produto.preco, @produto.qtdEstoque;</br>INSERT INTO wp_postmeta (post_id, meta_key, meta_value) VALUES (@response.insertId, '_price', @produto.preco);</br>INSERT INTO wp_postmeta (post_id, meta_key, meta_value) VALUES @response.insertId,'_stock', @produto.qtdEstoque;</br>INSERT INTO wp_postmeta (post_id, meta_key, meta_value) VALUES (@response.insertId,'_manage_stock', 'yes');
+**Atualizar produto**|PUT|wp_posts, wp_wc_product_meta_lookup, wp_postmeta|UPDATE wp_posts SET post_title = @produto.nome, post_excerpt = @produto.descricao;</br>UPDATE wp_wc_product_meta_lookup SET min_price = @produto.preco, stock_quantity = @produto.qtdEstoque WHERE product_id = @produto.id;</br>UPDATE wp_postmeta SET meta_value = @produto.preco WHERE post_id = @produto.id AND meta_key = '_price';</br>UPDATE wp_postmeta SET meta_value = @produto.qtdEstoque WHERE post_id = @produto.id AND meta_key = '_stock';
 **Remover produto**|DELETE|wp_posts, wp_wc_product_meta_lookup, wp_postmeta|DELETE FROM wp_posts WHERE id = @id;<br>DELETE FROM wp_wc_product_meta_lookup WHERE product_id = @id;<br>DELETE FROM wp_postmeta WHERE post_id = @id;
 **Obter estatísticas**|GET|wp_wc_order_product_lookup|SELECT aux.qtd AS totalPedidosVendidos, aux.valor AS valorTotalPedidosVendidos, aux.valor / aux.qtd AS valorMedioPedidosVendidos FROM (SELECT SUM(product_qty) AS qtd, SUM(product_gross_revenue) AS valor FROM wp_wc_order_product_lookup) AS aux;
 
+### 4. Explicação breve das queries
+Abaixo é apresentado uma tabela com a explicação das queries que utilizadas para as funcionalidades da aplicação:
 
+Funcionalidade|Explicação
+---|---
+**Listar produtos**|Busca parte das informações todos os produtos na tabela wp_post e a outra parte na tabela wp_wc_product_meta_lookup relacionada a cada produto, usando um JOIN. A tabela wp_wc_product_meta_lookup é usada apenas para facilitar a busca das informações, mas não faz com que os dados nela apareçam na plataforma do WooCommerce.
+**Listar produto**|Funciona da mesma forma que a querie de **Listar Produtos**, mas usa um **WHERE** para buscar apenas informações do produto desejado.
+**Inserir produto**|São feitas varias inserções em tabelas diferentes com propositos diferentes. Primeiro insere o nome e a descrição na tabela **wp_posts**, indicando que é um produto e passando vários valores padrões que não são usados pelo o WooCommerce. Em seguida, insere o preço e o estoque na tabela **wp_wc_product_meta_lookup** com o intuito de faciltar o resgate das informações. Depois se faz várias inserções na tabela **wp_postmeta**, começando com uma linha para o preço, mais outra linha para a quantidade de estoque. Por fim, outra linha para indicar que se deseja gerenciar o estoque, caso não seja feito essa indicação, não aparece o estoque na interface. **OBS** A tabela **wp_postmeta** que é usada de fato pelo WooCommerce para exibir as informações para o usuário.
+**Atualizar produto**|É feito uma querie de **UPDATE** para cada tabela que foi feita inserção de dados sobre o produto, mas não é feito atualização dos valores default da tabela **wp_posts** e nem na linha que indica se o estoque deve ser gerenciado ou não.
+**Remover produto**|São feitas 3 **DELETEs** uma em cada tabela que possui informações do produto, apagando apenas o produto que foi passado o **Id**
+**Obter estatísticas**|Busca primeiro a soma da quantidade de produtos vendidos e do valor total dos produtos vendidos, depois divide um pelo outro e obtem a média do valor dos produtos vendidos
+ e 
 ### Informações adicionais
 Todo o código fonte está hospedado no [GitHub](https://github.com/HaraHeique/CE-webservice-woocommerce).
 
