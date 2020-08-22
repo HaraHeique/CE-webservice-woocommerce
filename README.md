@@ -155,6 +155,7 @@ Funcionalidade|Explicação
 **Obter estatísticas**|Busca primeiro a soma da quantidade de produtos vendidos e do valor total dos produtos vendidos, depois divide um pelo outro e obtem a média do valor dos produtos vendidos
 
 ### Informações adicionais
+Para que apareceça valores no **stats**, é preciso fazer uma ou várias compras no WooCommerce. Recomendamos ativar o metódo de pagamento **"Pagar na entrega"**, já não exige configurações adicionais, mas qualquer outra forma de pagamento que se desejar, também irá funcionar.
 Todo o código fonte está hospedado no [GitHub](https://github.com/HaraHeique/CE-webservice-woocommerce).
 
 
