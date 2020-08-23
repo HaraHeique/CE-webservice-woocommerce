@@ -142,8 +142,8 @@ Funcionalidade|Verbo HTTP|Tabelas|Query
 **Remover produto**|DELETE|wp_posts, wp_wc_product_meta_lookup, wp_postmeta|DELETE FROM wp_posts WHERE id = @id;<br>DELETE FROM wp_wc_product_meta_lookup WHERE product_id = @id;<br>DELETE FROM wp_postmeta WHERE post_id = @id;
 **Obter estatísticas**|GET|wp_wc_order_product_lookup|SELECT aux.qtd AS totalPedidosVendidos, aux.valor AS valorTotalPedidosVendidos, aux.valor / aux.qtd AS valorMedioPedidosVendidos FROM (SELECT SUM(product_qty) AS qtd, SUM(product_gross_revenue) AS valor FROM wp_wc_order_product_lookup) AS aux;
 
-### 4. Explicação breve das queries
-Abaixo é apresentado uma tabela com a explicação das queries que utilizadas para as funcionalidades da aplicação:
+#### 4.1 Explicação breve das queries
+Abaixo é apresentado uma tabela com a explicação das queries que são utilizadas para as funcionalidades da aplicação:
 
 Funcionalidade|Explicação
 ---|---
@@ -156,7 +156,7 @@ Funcionalidade|Explicação
 
 ### Informações adicionais
 - Para que apareça valores no **stats**, é preciso fazer uma ou várias compras no WooCommerce. Recomendamos ativar o metódo de pagamento **"Pagar na entrega"**, já não exige configurações adicionais, mas qualquer outra forma de pagamento que se desejar, também irá funcionar.
-Todo o código fonte está hospedado no [GitHub](https://github.com/HaraHeique/CE-webservice-woocommerce).
+- Todo o código fonte está hospedado no [GitHub](https://github.com/HaraHeique/CE-webservice-woocommerce).
 
 
 
